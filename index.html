@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grade Calculator - Mighty Spirit</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>Grade Calculator</h1>
+            <p class="subtitle">Calculate what you need to ace your courses</p>
+        </header>
+
+        <main class="calculator-container">
+            <div class="input-section">
+                <div class="form-group">
+                    <label for="course">Course</label>
+                    <select id="course" class="form-control">
+                        <option value="">Select a course</option>
+                        <option value="cs101">CS 101 - Introduction to Computer Science</option>
+                        <option value="math201">MATH 201 - Linear Algebra</option>
+                        <option value="phys101">PHYS 101 - Physics I</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="professor">Professor</label>
+                    <select id="professor" class="form-control" disabled>
+                        <option value="">Select a professor</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="target-grade">Target Grade</label>
+                    <select id="target-grade" class="form-control">
+                        <option value="4.0">A+ (90-100%)</option>
+                        <option value="4.0" selected>A (85-89%)</option>
+                        <option value="3.7">A- (80-84%)</option>
+                        <option value="3.3">B+ (77-79%)</option>
+                        <option value="3.0">B (73-76%)</option>
+                        <option value="2.7">B- (70-72%)</option>
+                        <option value="2.3">C+ (67-69%)</option>
+                        <option value="2.0">C (63-66%)</option>
+                        <option value="1.7">C- (60-62%)</option>
+                        <option value="1.0">D (50-59%)</option>
+                    </select>
+                </div>
+
+                <div id="grade-components" class="grade-components">
+                    <!-- Grade components will be added here dynamically -->
+                    <div class="empty-state">
+                        <i class="fas fa-book-open"></i>
+                        <p>Select a course to see grade components</p>
+                    </div>
+                </div>
+
+                <button id="calculate-btn" class="btn btn-primary" disabled>Calculate</button>
+            </div>
+
+            <div class="results-section">
+                <div class="card">
+                    <h3>Results</h3>
+                    <div class="result-item">
+                        <span class="result-label">Current Grade:</span>
+                        <span id="current-grade" class="result-value">-</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">Target Grade:</span>
+                        <span id="target-display" class="result-value">-</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">Needed on Remaining:</span>
+                        <span id="needed-grade" class="result-value">-</span>
+                    </div>
+                </div>
+
+                <div class="card study-plan">
+                    <h3>Study Plan</h3>
+                    <div id="study-plan" class="study-plan-items">
+                        <div class="empty-state">
+                            <i class="fas fa-lightbulb"></i>
+                            <p>Enter your grades to see personalized study recommendations</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <footer class="footer">
+        <p>© 2025 Mighty Spirit | Built with ❤️ for students</p>
+    </footer>
+
+    <script src="js/data/courses.js"></script>
+    <script src="js/utils/calculations.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
